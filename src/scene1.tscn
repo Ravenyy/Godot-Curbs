@@ -5,9 +5,13 @@
 [ext_resource path="res://assets/arrow.png" type="Texture" id=3]
 [ext_resource path="res://src/ball.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/asphalt.tscn" type="PackedScene" id=5]
-[ext_resource path="res://src/right_curb.tscn" type="PackedScene" id=6]
-[ext_resource path="res://src/left_curb.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/main.gd" type="Script" id=8]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 534.5, 19 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 534.5, 19 )
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 8 )
@@ -42,13 +46,26 @@ texture = ExtResource( 3 )
 position = Vector2( 153, 374 )
 
 [node name="Asphalt" parent="." instance=ExtResource( 5 )]
-position = Vector2( 608, 558 )
+position = Vector2( 597, 558 )
 scale = Vector2( 2, 1 )
 
-[node name="Right Curb" parent="." instance=ExtResource( 6 )]
-position = Vector2( 1237, 523 )
-scale = Vector2( 2, 1.9 )
+[node name="Left Curb" parent="." instance=ExtResource( 5 )]
+position = Vector2( -63, 523 )
+scale = Vector2( 1, 1.2 )
 
-[node name="Left Curb" parent="." instance=ExtResource( 7 )]
-position = Vector2( 4, 523 )
-scale = Vector2( 2, 1.9 )
+[node name="Right Curb" type="Area2D" parent="."]
+position = Vector2( 1122, 515 )
+collision_layer = 2
+collision_mask = 2
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Right Curb"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right Curb/StaticBody2D"]
+position = Vector2( 366.5, 8 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right Curb"]
+position = Vector2( 366.5, 8 )
+shape = SubResource( 2 )
+
+[connection signal="body_entered" from="Right Curb" to="." method="_on_Area2D_body_entered"]
