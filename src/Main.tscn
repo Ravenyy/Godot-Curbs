@@ -38,12 +38,16 @@ texture = ExtResource( 4 )
 
 [node name="Ball" parent="." instance=ExtResource( 8 )]
 position = Vector2( 154, 377 )
+collision_layer = 0
 
 [node name="Asphalt" parent="." instance=ExtResource( 7 )]
 position = Vector2( 577, 568 )
+collision_mask = 0
 
 [node name="Left Curb" parent="." instance=ExtResource( 2 )]
 position = Vector2( -49, 527 )
+collision_mask = 0
 
 [node name="Right Curb" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1292, 527 )
+collision_mask = 0
