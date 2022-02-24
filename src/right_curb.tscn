@@ -1,28 +1,17 @@
-[gd_scene load_steps=4 format=2]
-
-[ext_resource path="res://src/right_curb.gd" type="Script" id=1]
-
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 142, 10 )
+[gd_scene load_steps=3 format=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 142, 10 )
+extents = Vector2( 338, 23 )
 
-[node name="Node2D" type="Node2D"]
-script = ExtResource( 1 )
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 338, 23 )
+
+[node name="Area2D" type="Area2D"]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-collision_layer = 2
-collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource( 2 )
-
-[node name="Area2D" type="Area2D" parent="."]
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 1 )
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )

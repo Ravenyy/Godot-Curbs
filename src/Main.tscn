@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://src/Left_Curb.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/street_1.png" type="Texture" id=3]
+[ext_resource path="res://assets/arrow.png" type="Texture" id=4]
+[ext_resource path="res://assets/white_tile.png" type="Texture" id=5]
+[ext_resource path="res://src/Right_Curb.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/Asphalt.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/Ball.tscn" type="PackedScene" id=8]
+
+[node name="Main" type="Node2D"]
+
+[node name="White Background" type="TextureRect" parent="."]
+margin_left = -6.0
+margin_top = -9.0
+margin_right = 1282.0
+margin_bottom = 552.0
+texture = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Street Background" type="TextureRect" parent="."]
+margin_left = -8.0
+margin_top = -9.0
+margin_right = 1463.0
+margin_bottom = 795.0
+rect_scale = Vector2( 0.88, 0.8 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Arrow" type="Sprite" parent="."]
+position = Vector2( 76, 430 )
+texture = ExtResource( 4 )
+
+[node name="Ball" parent="." instance=ExtResource( 8 )]
+position = Vector2( 154, 377 )
+
+[node name="Asphalt" parent="." instance=ExtResource( 7 )]
+position = Vector2( 577, 568 )
+
+[node name="Left Curb" parent="." instance=ExtResource( 2 )]
+position = Vector2( -49, 527 )
+
+[node name="Right Curb" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1292, 527 )

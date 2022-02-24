@@ -4,6 +4,7 @@ onready var visibility_notifier = get_node("VisibilityNotifier2D")
 var dragging
 var drag_start = Vector2()
 
+
 func _input(event):
 	if event.is_action_pressed("click") and not dragging:
 		dragging = true
@@ -18,4 +19,4 @@ func _input(event):
 
 func _on_VisibilityNotifier2D_screen_exited():
 	mode = MODE_STATIC
-	set_position(Vector2(0, 0))
+	set_position(Vector2(154, 377))
