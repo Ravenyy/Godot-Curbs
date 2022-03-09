@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/WhiteBox-1.png-c97abb8b8c1a48e56d9c04a00a67e439.stex"
+path="res://.import/street3.png-92a9d2ff568e315328b4bbd05e4a7fa9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/WhiteBox-1.png"
-dest_files=[ "res://.import/WhiteBox-1.png-c97abb8b8c1a48e56d9c04a00a67e439.stex" ]
+source_file="res://assets/street3.png"
+dest_files=[ "res://.import/street3.png-92a9d2ff568e315328b4bbd05e4a7fa9.stex" ]
 
 [params]
 

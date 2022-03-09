@@ -24,6 +24,9 @@ func _input(event):
 		var dir = drag_end - drag_start
 		apply_impulse(Vector2(), dir * 1.4)
 
+	if Input.is_key_pressed(KEY_K):
+		emit_signal("point_scored")
+
 
 func _on_VisibilityNotifier2D_screen_exited():
 	emit_signal("ball_went_offscreen")

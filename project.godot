@@ -11,8 +11,12 @@ config_version=4
 [application]
 
 config/name="curbs1"
-run/main_scene="res://src/Main.tscn"
+run/main_scene="res://src/Start.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+Levels="*res://scripts/Levels.gd"
 
 [display]
 
