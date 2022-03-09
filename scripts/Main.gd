@@ -11,8 +11,8 @@ func reset_ball_position(ball = $Ball):
 	ball.set_position(Vector2(154, 377))
 	
 
-func draw_score_dots(points):
-	match(points):
+func draw_score_dots(p):
+	match(p):
 		1: 
 			get_node("Score/PointFull1").show()
 		2:

@@ -29,7 +29,7 @@ func _on_VisibilityNotifier2D_screen_exited():
 	emit_signal("ball_went_offscreen")
 
 
-func _on_Ball_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
+func _on_Ball_body_shape_entered(_body_rid, body, _body_shape_index, _local_shape_index):
 	match(body.name):
 		"LeftCurbBody":
 			if left_curb_touch == false && asphalt_touch == false:
