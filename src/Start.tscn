@@ -1,6 +1,130 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://scripts/Start.gd" type="Script" id=1]
+[ext_resource path="res://assets/STARTstroke6.png" type="Texture" id=1]
+[ext_resource path="res://scripts/StartButton.gd" type="Script" id=2]
+[ext_resource path="res://assets/xxxy.png" type="Texture" id=3]
 
-[node name="Start" type="Node2D"]
-script = ExtResource( 1 )
+[node name="ModalStart" type="Node2D"]
+
+[node name="WhiteBackground" type="ColorRect" parent="."]
+margin_left = -6.0
+margin_top = -9.0
+margin_right = 1282.0
+margin_bottom = 552.0
+color = Color( 1, 1, 1, 0.784314 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton" type="TextureButton" parent="."]
+margin_left = 512.0
+margin_top = 403.0
+margin_right = 773.0
+margin_bottom = 510.0
+texture_normal = ExtResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="XXXY" type="TextureRect" parent="."]
+margin_left = 817.0
+margin_top = 40.0
+margin_right = 865.0
+margin_bottom = 292.0
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Instruction1" type="RichTextLabel" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 325.0
+margin_top = 40.0
+margin_right = 531.0
+margin_bottom = 90.0
+bbcode_enabled = true
+bbcode_text = "[font=fonts/LuckiestGuy.tres]NO CURB[/font]"
+text = "NO CURB"
+fit_content_height = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Instruction2" type="RichTextLabel" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 325.0
+margin_top = 112.0
+margin_right = 626.0
+margin_bottom = 162.0
+bbcode_enabled = true
+bbcode_text = "[font=fonts/LuckiestGuy.tres]ROAD -> CURB[/font]"
+text = "ROAD -> CURB"
+fit_content_height = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Instruction3" type="RichTextLabel" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 325.0
+margin_top = 184.0
+margin_right = 740.0
+margin_bottom = 234.0
+bbcode_enabled = true
+bbcode_text = "[font=fonts/LuckiestGuy.tres]CURB -> PAVEMENT[/font]"
+text = "CURB -> PAVEMENT"
+fit_content_height = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Instruction4" type="RichTextLabel" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 325.0
+margin_top = 255.0
+margin_right = 636.0
+margin_bottom = 305.0
+bbcode_enabled = true
+bbcode_text = "[font=fonts/LuckiestGuy.tres]CURB -> ROAD[/font]"
+text = "CURB -> ROAD"
+fit_content_height = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Instruction5" type="RichTextLabel" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 325.0
+margin_top = 326.0
+margin_right = 610.0
+margin_bottom = 376.0
+bbcode_enabled = true
+bbcode_text = "[font=fonts/LuckiestGuy.tres]3 IN A ROW[/font]"
+text = "3 IN A ROW"
+fit_content_height = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Instruction6" type="RichTextLabel" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 817.0
+margin_top = 326.0
+margin_right = 980.0
+margin_bottom = 376.0
+bbcode_enabled = true
+bbcode_text = "[font=fonts/LuckiestGuy.tres]LEVEL+[/font]"
+text = "LEVEL+"
+fit_content_height = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="button_up" from="TextureButton" to="TextureButton" method="_on_TextureButton_button_up"]

@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="curbs1"
-run/main_scene="res://src/Start.tscn"
+run/main_scene="res://src/ShuffleLevels.tscn"
 config/icon="res://icon.png"
 
 [autoload]

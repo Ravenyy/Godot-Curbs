@@ -1,99 +1,25 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://src/Left_Curb.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/street1.png" type="Texture" id=3]
+[ext_resource path="res://src/Start.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/arrow.png" type="Texture" id=4]
-[ext_resource path="res://assets/white_tile.png" type="Texture" id=5]
+[ext_resource path="res://src/End.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/Right_Curb.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/Asphalt.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/Ball.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/Score_Dots.tscn" type="PackedScene" id=9]
-[ext_resource path="res://assets/street2.png" type="Texture" id=10]
-[ext_resource path="res://assets/street3.png" type="Texture" id=11]
-[ext_resource path="res://assets/street6.png" type="Texture" id=12]
-[ext_resource path="res://assets/street4.png" type="Texture" id=13]
-[ext_resource path="res://assets/street5.png" type="Texture" id=14]
+[ext_resource path="res://src/Sounds.tscn" type="PackedScene" id=10]
+[ext_resource path="res://src/Background.tscn" type="PackedScene" id=15]
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 1 )
 
-[node name="White Background" type="TextureRect" parent="."]
-margin_left = -6.0
-margin_top = -9.0
-margin_right = 1282.0
-margin_bottom = 552.0
-texture = ExtResource( 5 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Background" parent="." instance=ExtResource( 15 )]
+position = Vector2( -6, -9 )
 
-[node name="Street 1" type="TextureRect" parent="."]
-visible = false
-margin_left = -8.0
-margin_top = -9.0
-margin_right = 1463.0
-margin_bottom = 795.0
-texture = ExtResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Street 2" type="TextureRect" parent="."]
-visible = false
-margin_left = -8.0
-margin_top = -9.0
-margin_right = 1463.0
-margin_bottom = 795.0
-texture = ExtResource( 10 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Street 3" type="TextureRect" parent="."]
-visible = false
-margin_left = -8.0
-margin_top = -9.0
-margin_right = 1463.0
-margin_bottom = 795.0
-texture = ExtResource( 11 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Street 4" type="TextureRect" parent="."]
-visible = false
-margin_left = -8.0
-margin_top = -9.0
-margin_right = 1463.0
-margin_bottom = 795.0
-texture = ExtResource( 13 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Street 5" type="TextureRect" parent="."]
-visible = false
-margin_left = -8.0
-margin_top = -9.0
-margin_right = 1463.0
-margin_bottom = 795.0
-texture = ExtResource( 14 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Street 6" type="TextureRect" parent="."]
-visible = false
-margin_left = -8.0
-margin_top = -9.0
-margin_right = 1463.0
-margin_bottom = 795.0
-texture = ExtResource( 12 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Score" parent="." instance=ExtResource( 9 )]
+position = Vector2( 118, 47 )
 
 [node name="Arrow" type="Sprite" parent="."]
 position = Vector2( 76, 430 )
@@ -115,8 +41,25 @@ collision_mask = 0
 position = Vector2( 1195, 522 )
 collision_mask = 0
 
-[node name="Score" parent="." instance=ExtResource( 9 )]
-position = Vector2( 118, 47 )
+[node name="LevelCounter" type="RichTextLabel" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 1046.0
+margin_top = 19.0
+margin_right = 1277.0
+margin_bottom = 69.0
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ModalStart" parent="." instance=ExtResource( 3 )]
+
+[node name="ModalEnd" parent="." instance=ExtResource( 5 )]
+visible = false
+
+[node name="Sounds" parent="." instance=ExtResource( 10 )]
+position = Vector2( -28, 84 )
 
 [connection signal="ball_went_offscreen" from="Ball" to="." method="_on_Ball_ball_went_offscreen"]
 [connection signal="point_scored" from="Ball" to="." method="_on_Ball_point_scored"]

@@ -1,0 +1,85 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/street3.png" type="Texture" id=1]
+[ext_resource path="res://assets/street5.png" type="Texture" id=2]
+[ext_resource path="res://assets/street2.png" type="Texture" id=3]
+[ext_resource path="res://assets/street6.png" type="Texture" id=4]
+[ext_resource path="res://assets/street4.png" type="Texture" id=5]
+[ext_resource path="res://assets/street1.png" type="Texture" id=6]
+
+[node name="Background" type="Node2D"]
+
+[node name="WhiteBackground" type="ColorRect" parent="."]
+margin_left = -6.0
+margin_top = -9.0
+margin_right = 1282.0
+margin_bottom = 552.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Street 1" type="TextureRect" parent="."]
+visible = false
+margin_left = -8.0
+margin_top = -9.0
+margin_right = 1463.0
+margin_bottom = 795.0
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Street 2" type="TextureRect" parent="."]
+visible = false
+margin_left = -8.0
+margin_top = -9.0
+margin_right = 1463.0
+margin_bottom = 795.0
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Street 3" type="TextureRect" parent="."]
+visible = false
+margin_left = -8.0
+margin_top = -9.0
+margin_right = 1463.0
+margin_bottom = 795.0
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Street 4" type="TextureRect" parent="."]
+visible = false
+margin_left = -8.0
+margin_top = -9.0
+margin_right = 1463.0
+margin_bottom = 795.0
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Street 5" type="TextureRect" parent="."]
+visible = false
+margin_left = -8.0
+margin_top = -9.0
+margin_right = 1463.0
+margin_bottom = 795.0
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Street 6" type="TextureRect" parent="."]
+visible = false
+margin_left = -8.0
+margin_top = -9.0
+margin_right = 1463.0
+margin_bottom = 795.0
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

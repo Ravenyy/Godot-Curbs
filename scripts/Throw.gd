@@ -7,16 +7,20 @@ var left_curb_touch = false
 var right_curb_touch = false
 var asphalt_touch = false
 var clicked = false
+var right_curb_continuous_touch = false
+var right_curb_collisions = 0
 signal point_scored
 signal points_lost
 signal ball_went_offscreen
 
 func _input(event):
-	if event.is_action_pressed("click") && not dragging:
+	if event.is_action_pressed("click") && not dragging \
+	&& not get_node("/root/Main/ModalStart").is_visible():
 		dragging = true
 		drag_start = get_global_mouse_position()
 		
-	if event.is_action_released("click") && clicked == false && dragging:
+	if event.is_action_released("click") && clicked == false && dragging \
+	&& not get_node("/root/Main/ModalStart").is_visible():
 		clicked = true
 		mode = MODE_RIGID
 		dragging = false
@@ -43,7 +47,16 @@ func _on_Ball_body_shape_entered(_body_rid, body, _body_shape_index, _local_shap
 		"RightCurbBody":
 			if right_curb_touch == false && left_curb_touch == false && asphalt_touch == false:
 				right_curb_touch = true
+				right_curb_collisions += 1
 				print("Right curb touched")
+			elif right_curb_touch == true && right_curb_collisions < 20 \
+			&& right_curb_continuous_touch == false:
+				print("right curb")
+				right_curb_collisions += 1
+			elif right_curb_touch == true && right_curb_collisions >= 20 \
+			&& right_curb_continuous_touch == false:
+				right_curb_continuous_touch = true
+				emit_signal("points_lost")
 
 		"AsphaltBody":
 			if asphalt_touch == false && left_curb_touch == false && right_curb_touch == true:

@@ -1,0 +1,88 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/YouWin.png" type="Texture" id=1]
+[ext_resource path="res://assets/Exit.png" type="Texture" id=2]
+[ext_resource path="res://scripts/Restart.gd" type="Script" id=3]
+[ext_resource path="res://assets/Restart.png" type="Texture" id=4]
+[ext_resource path="res://scripts/Exit.gd" type="Script" id=5]
+
+[node name="ModalEnd" type="Node2D"]
+
+[node name="WhiteBackground" type="ColorRect" parent="."]
+margin_left = -6.0
+margin_top = -9.0
+margin_right = 1282.0
+margin_bottom = 552.0
+color = Color( 1, 1, 1, 0.784314 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Win" type="TextureRect" parent="."]
+margin_left = 16.0
+margin_top = -1.0
+margin_right = 1264.0
+margin_bottom = 297.0
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DevelopedBy" type="RichTextLabel" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 21.0
+margin_top = 428.0
+margin_right = 312.0
+margin_bottom = 532.0
+bbcode_enabled = true
+bbcode_text = "[center][font=fonts/LuckiestGuy_24.tres]DEVELOPED BY:
+47studio.pl
+Tomasz Gierałtowski
+Przemysław Sankowski[/font][/center]"
+text = "DEVELOPED BY:
+47studio.pl
+Tomasz Gierałtowski
+Przemysław Sankowski"
+fit_content_height = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Throws" type="RichTextLabel" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 366.5
+margin_top = 248.0
+margin_right = 914.5
+margin_bottom = 448.0
+bbcode_enabled = true
+fit_content_height = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Exit" type="TextureButton" parent="."]
+margin_left = 948.0
+margin_top = 429.0
+margin_right = 1209.0
+margin_bottom = 536.0
+texture_normal = ExtResource( 2 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Restart" type="TextureButton" parent="."]
+margin_left = 908.0
+margin_top = 301.0
+margin_right = 1247.0
+margin_bottom = 408.0
+texture_normal = ExtResource( 4 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="button_up" from="Exit" to="Exit" method="_on_Exit_button_up"]
+[connection signal="button_up" from="Restart" to="Restart" method="_on_Restart_button_up"]
