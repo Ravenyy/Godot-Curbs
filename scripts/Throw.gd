@@ -1,32 +1,36 @@
 extends RigidBody2D
 
 onready var visibility_notifier = get_node("VisibilityNotifier2D")
-var dragging
-var drag_start = Vector2()
+var swipe_start = 0
+var start_time = 0
+var time_elapsed = 0
+
 var left_curb_touch = false
 var right_curb_touch = false
 var asphalt_touch = false
-var clicked = false
+var clicked = true
 var right_curb_continuous_touch = false
 var right_curb_collisions = 0
+
 signal point_scored
 signal points_lost
 signal ball_went_offscreen
 
-func _input(event):
-	if event.is_action_pressed("click") && not dragging \
-	&& not get_node("/root/Main/ModalStart").is_visible():
-		dragging = true
-		drag_start = get_global_mouse_position()
-		
-	if event.is_action_released("click") && clicked == false && dragging \
-	&& not get_node("/root/Main/ModalStart").is_visible():
-		clicked = true
-		mode = MODE_RIGID
-		dragging = false
-		var drag_end = get_global_mouse_position()
-		var dir = drag_end - drag_start
-		apply_impulse(Vector2(), dir * 1.4)
+
+func _input(event):	
+	if event is InputEventScreenTouch && not get_node("/root/Main/ModalStart").is_visible() \
+	&& clicked == false:
+		if event.pressed:
+			swipe_start = event.get_position()
+			start_time = OS.get_ticks_msec()
+		else:
+			clicked = true
+			time_elapsed = OS.get_ticks_msec() - start_time
+			print(time_elapsed)
+			mode = MODE_RIGID
+			var swipe = event.get_position() - swipe_start
+			apply_impulse(Vector2(), swipe * 450/time_elapsed)
+
 
 	if Input.is_key_pressed(KEY_K):
 		emit_signal("point_scored")
