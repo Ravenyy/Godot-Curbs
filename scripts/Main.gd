@@ -20,17 +20,20 @@ func set_level():
 	levelCounter.set_bbcode(levelText % Levels.current)
 
 
-func reset_ball_position(ball = $Ball):
-	throws += 1
-	ball.set("mode", 1)
+func set_ball_attributes(ball = $Ball):
 	ball.set("left_curb_touch", false)
 	ball.set("right_curb_touch", false)
 	ball.set("asphalt_touch", false)
 	ball.set("clicked", false)
 	ball.set("right_curb_continuous_touch", false)
 	ball.set("right_curb_collisions", 0)
+
+func reset_ball_position(ball = $Ball):
+	throws += 1
+	ball.set("mode", 1)
 	ball.set_position(Vector2(154, 377))
-	
+	yield(get_tree().create_timer(0.05), "timeout")
+	set_ball_attributes()
 
 func draw_score_dots(p):
 	match(p):

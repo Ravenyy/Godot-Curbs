@@ -60,9 +60,9 @@ func _on_Ball_body_shape_entered(_body_rid, body, _body_shape_index, _local_shap
 
 		"AsphaltBody":
 			if asphalt_touch == false && left_curb_touch == false && right_curb_touch == true:
-					asphalt_touch = true
-					print("Asphalt touched")
-					emit_signal("point_scored")
+				asphalt_touch = true
+				print("Asphalt touched")
+				emit_signal("point_scored")
 			elif asphalt_touch == false && left_curb_touch == false && right_curb_touch == false:
 				asphalt_touch = true
 				print("Asphalt touched before right curb")
