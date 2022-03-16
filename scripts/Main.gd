@@ -5,6 +5,7 @@ var throws = 1
 onready var levelCounter = get_node("LevelCounter")
 var levelText = "[font=fonts/LuckiestGuy.tres] Level %d/6[/font]"
 
+
 func _ready():
 	set_level()
 
@@ -14,8 +15,8 @@ func set_level():
 		get_node("Sounds/NextLevel").play()
 		get_node("Background/" + Levels.levels[Levels.current - 1][0]).hide()
 	get_node("Background/" + Levels.levels[Levels.current][0]).show()
-	get_node("Left Curb").set_position(Vector2(Levels.levels[Levels.current][1], 522))
-	get_node("Right Curb").set_position(Vector2(Levels.levels[Levels.current][2], 522))
+	get_node("Left Curb").set_position(Vector2(Levels.levels[Levels.current][1], 515))
+	get_node("Right Curb").set_position(Vector2(Levels.levels[Levels.current][2], 514))
 	Levels.current += 1
 	levelCounter.set_bbcode(levelText % Levels.current)
 
@@ -24,6 +25,7 @@ func _on_Ball_ball_went_offscreen():
 	points = 0
 	print("points = ", points)
 	draw_score_dots(points)
+	yield(get_tree().create_timer(1.5), "timeout")
 	reset_ball_position()
 
 
@@ -42,6 +44,7 @@ func set_ball_attributes(ball = $Ball):
 	ball.set("clicked", false)
 	ball.set("right_curb_continuous_touch", false)
 	ball.set("right_curb_collisions", 0)
+	ball.set("ball_is_offscreen", false)
 
 
 func draw_score_dots(p):

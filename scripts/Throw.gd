@@ -11,10 +11,20 @@ var asphalt_touch = false
 var clicked = true
 var right_curb_continuous_touch = false
 var right_curb_collisions = 0
+var ball_is_offscreen = false
 
 signal point_scored
 signal points_lost
 signal ball_went_offscreen
+
+
+func _process(delta):
+	if get_global_position()[0] < 0 || get_global_position()[0] > 1310:
+		if left_curb_touch == false && right_curb_continuous_touch == false\
+		&& asphalt_touch == false && ball_is_offscreen == false:
+			ball_is_offscreen = true
+			yield(get_tree().create_timer(0.05), "timeout")
+			emit_signal("ball_went_offscreen")
 
 
 func _input(event):	
@@ -31,13 +41,8 @@ func _input(event):
 			var swipe = event.get_position() - swipe_start
 			apply_impulse(Vector2(), swipe * 450/time_elapsed)
 
-
 	if Input.is_key_pressed(KEY_K):
 		emit_signal("point_scored")
-
-
-func _on_VisibilityNotifier2D_screen_exited():
-	emit_signal("ball_went_offscreen")
 
 
 func _on_Ball_body_shape_entered(_body_rid, body, _body_shape_index, _local_shape_index):
