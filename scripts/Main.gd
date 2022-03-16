@@ -20,6 +20,21 @@ func set_level():
 	levelCounter.set_bbcode(levelText % Levels.current)
 
 
+func _on_Ball_ball_went_offscreen():
+	points = 0
+	print("points = ", points)
+	draw_score_dots(points)
+	reset_ball_position()
+
+
+func reset_ball_position(ball = $Ball):
+	throws += 1
+	ball.set("mode", 1)
+	ball.set_position(Vector2(154, 377))
+	yield(get_tree().create_timer(0.05), "timeout")
+	set_ball_attributes()
+
+
 func set_ball_attributes(ball = $Ball):
 	ball.set("left_curb_touch", false)
 	ball.set("right_curb_touch", false)
@@ -28,12 +43,6 @@ func set_ball_attributes(ball = $Ball):
 	ball.set("right_curb_continuous_touch", false)
 	ball.set("right_curb_collisions", 0)
 
-func reset_ball_position(ball = $Ball):
-	throws += 1
-	ball.set("mode", 1)
-	ball.set_position(Vector2(154, 377))
-	yield(get_tree().create_timer(0.05), "timeout")
-	set_ball_attributes()
 
 func draw_score_dots(p):
 	match(p):
@@ -77,7 +86,6 @@ func _on_Ball_point_scored():
 		get_node("Sounds/GameWin").play()
 
 
-
 func _on_Ball_points_lost():
 	points = 0
 	print("points = ", points)
@@ -86,9 +94,3 @@ func _on_Ball_points_lost():
 	reset_ball_position()
 	get_node("Score/PointFull1").hide()
 
-
-func _on_Ball_ball_went_offscreen():
-	points = 0
-	print("points = ", points)
-	draw_score_dots(points)
-	reset_ball_position()
