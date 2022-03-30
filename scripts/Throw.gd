@@ -1,6 +1,5 @@
 extends RigidBody2D
 
-onready var visibility_notifier = get_node("VisibilityNotifier2D")
 var swipe_start = 0
 var start_time = 0
 var time_elapsed = 0
@@ -18,7 +17,7 @@ signal points_lost
 signal ball_went_offscreen
 
 
-func _process(delta):
+func _process(_delta):
 	if get_global_position()[0] < 0 || get_global_position()[0] > 1310:
 		if left_curb_touch == false && right_curb_continuous_touch == false\
 		&& asphalt_touch == false && ball_is_offscreen == false:
