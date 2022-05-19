@@ -31,19 +31,15 @@ __meta__ = {
 [node name="DevelopedBy" type="RichTextLabel" parent="."]
 modulate = Color( 0, 0, 0, 1 )
 self_modulate = Color( 0, 0, 0, 1 )
-margin_left = 21.0
-margin_top = 428.0
-margin_right = 312.0
-margin_bottom = 532.0
+margin_left = 3.0
+margin_top = 482.0
+margin_right = 294.0
+margin_bottom = 536.0
 bbcode_enabled = true
 bbcode_text = "[center][font=fonts/LuckiestGuy_24.tres]DEVELOPED BY:
-47studio.pl
-Tomasz Gierałtowski
-Przemysław Sankowski[/font][/center]"
+47studio.pl[/font][/center]"
 text = "DEVELOPED BY:
-47studio.pl
-Tomasz Gierałtowski
-Przemysław Sankowski"
+47studio.pl"
 fit_content_height = true
 __meta__ = {
 "_edit_use_anchors_": false
